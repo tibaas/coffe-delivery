@@ -4,13 +4,15 @@ export const IntroContainer = styled.div`
     width: 90rem;
     height: 34rem;
     background: ${props => props.theme['background']};
-    padding: 4rem;
+    padding: 6rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
 
     img {
         display: block;
+        
+        
     }
 
     h1 {
