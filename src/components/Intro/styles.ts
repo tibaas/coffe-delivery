@@ -11,17 +11,14 @@ export const IntroContainer = styled.div`
 
     img {
         display: block;
-        
-        
+               
     }
 
     h1 {
         font-family: 'Baloo 2', sans-serif;
         color: ${props => props.theme['base-title']};
         font-size: 3rem ;
-        line-height: 3rem;
-        
-        
+        line-height: 3rem;            
         
     }
 

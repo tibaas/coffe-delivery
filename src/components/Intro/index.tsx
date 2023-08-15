@@ -1,4 +1,3 @@
-import { Header } from "../Header"
 import { IntroContainer, SpanContainer } from "./styles"
 import CoffeLogo from '../../assets/Coffe-image.svg'
 import cartSpan from '../../assets/Icon-cart.svg'
@@ -9,8 +8,7 @@ import packetSpan from '../../assets/Icon-packet.svg'
 
 export function Intro() {
     return (
-        <>
-            <Header />
+        <>   
             <IntroContainer>
                 <div>
                     <h1>
