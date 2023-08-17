@@ -6,8 +6,6 @@ export const CheckoutContainer = styled.div `
     display: grid;
     grid-template-columns: 43rem auto;
     
-
-
     h3 {
         font-family: 'Baloo 2', sans-serif;
         color: ${props => props.theme['base-subtitle']};
@@ -22,7 +20,7 @@ export const TitleSection = styled.h3`
 `
 
 export const SelectedItemsContainer = styled.div`
-
+    padding: 1.5rem;
     width: 28rem;
     height: 31rem;
     background: ${props => props.theme['background']}; 
@@ -30,7 +28,112 @@ export const SelectedItemsContainer = styled.div`
     border-top-right-radius: 44px;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 44px;
+    display: flex;
+    align-items: flex-start;
+    
 
+`
+export const SelectedItemButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 0;
+  border-radius: 15px;
+  margin-top: 2rem;
+  margin-right: 10rem;
+  position: absolute;
+  
+  background: ${props => props.theme['base-button']};
+  
+
+  button {
+        
+        width:2rem;
+        height: 2rem;
+        border:0;
+        border-radius: 8px;
+        font-size: 1.8rem;
+        background: ${props => props.theme['base-button']};
+        color: ${props => props.theme['purple']};
+        cursor: pointer;   
+    }
+
+
+`
+
+export const RemoveButtonContainer = styled.div`
+
+    margin-top: 2rem;
+    margin-right: 3rem;
+    
+    button {
+      width: 5.6rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Roboto', sans-serif;
+      background: ${props => props.theme['base-button']};
+      color: ${props => props.theme['base-text']};
+      border: 0;
+      border-radius: 8px;
+      gap: 5px;
+      
+    }
+
+
+`
+
+export const SelectedItemTitleContainer = styled.div`
+  margin-bottom: 4rem;
+  margin-left: 1rem;
+  
+  max-height: 1.2rem;
+  
+  background: red;
+  
+
+      
+  p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      display: inline;
+    }
+
+`
+
+export const SelectedItem = styled.div`
+
+    width:100%;
+    height:7rem;
+
+    
+    span:last-child{
+      color: ${props => props.theme['base-text']};
+      display: flex;
+      font-family: 'Baloo 2', sans-serif;
+      margin-bottom: 2rem;
+      margin-right: 2rem;
+      font-size: 1.1rem;
+      
+
+      
+      
+    }
+    
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    
+
+    img {
+      width: 4rem;
+      height: 4rem;
+      display: inline-block;
+      
+    }
 
 
 `
@@ -96,7 +199,7 @@ export const CheckoutPaymentContainer = styled.div`
     width: 40rem;
     height: 12rem;
     padding: 2rem;
-    margin-top: 5rem;
+    margin-top: 4.5rem;
     
     
     border-radius: 10px;
