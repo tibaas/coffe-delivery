@@ -10,7 +10,9 @@ import { BairroInput,
     InputRow, 
     NumeroInput, 
     RuaInput, 
-    UfInput } from "./styles";
+    UfInput,
+    SelectedItemsContainer, 
+    TitleSection} from "./styles";
 import Icon from '../../assets/location-checkout-icon.svg'
 import { CreditCard, Bank, Money, CurrencyDollar } from "phosphor-react";
 
@@ -18,7 +20,13 @@ import { CreditCard, Bank, Money, CurrencyDollar } from "phosphor-react";
 export function Checkout() {
     return (
         <CheckoutContainer>
-            <h3>Complete seu pedido</h3>
+            <TitleSection>
+                <h3>Complete seu pedido</h3>
+            </TitleSection>
+            <TitleSection>
+                <h3>Cafés selecionados</h3>
+            </TitleSection>            
+
             <CheckoutFormContainer>
                     <img src={Icon} alt="" />
                 <header>
@@ -44,24 +52,31 @@ export function Checkout() {
                     </InputRow>
                     </form>
                 </section>
+
+                <section>
+
+                <CheckoutPaymentContainer>
+                    <IconPaymentContainer>
+                        <CurrencyDollar  size={25} color="#8047f8" /> 
+                    </IconPaymentContainer>
+                    <span> Pagamento</span>
+                    <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                    <ButtonsContainer>
+                        <button> <CreditCard size={15} color="#8047f8"/> CARTÃO DE CRÉDITO</button>
+                        <button> <Bank size={15} color="#8047f8" /> CARTÃO DE DÉBITO</button>
+                        <button> <Money size={15} color="#8047f8" />  DINHEIRO</button>
+                    </ButtonsContainer>
+                </CheckoutPaymentContainer>
+                    
+                </section>
             </CheckoutFormContainer>
 
-            <CheckoutPaymentContainer>
-                <IconPaymentContainer>
-                    <CurrencyDollar  size={25} color="#8047f8" /> 
-                </IconPaymentContainer>
-                <span> Pagamento</span>
-                <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
-                <ButtonsContainer>
-                    <button> <CreditCard size={15} color="#8047f8"/> CARTÃO DE CRÉDITO</button>
-                    <button> <Bank size={15} color="#8047f8" /> CARTÃO DE DÉBITO</button>
-                    <button> <Money size={15} color="#8047f8" />  DINHEIRO</button>
-                </ButtonsContainer>
-            </CheckoutPaymentContainer>
+            <SelectedItemsContainer>
+                
+                component
+            </SelectedItemsContainer>
         </CheckoutContainer>
     )
 }
-
-
 
 

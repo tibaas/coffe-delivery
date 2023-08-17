@@ -3,21 +3,45 @@ import { styled } from "styled-components";
 export const CheckoutContainer = styled.div `
     width: 90rem;
     padding: 6rem;
+    display: grid;
+    grid-template-columns: 43rem auto;
+    
+
+
     h3 {
         font-family: 'Baloo 2', sans-serif;
-        color: ${props => props.theme['base-subtitle']}
+        color: ${props => props.theme['base-subtitle']};
+
     }
+
+`
+export const TitleSection = styled.h3`
+    margin-bottom: 1rem;
+
+
+`
+
+export const SelectedItemsContainer = styled.div`
+
+    width: 28rem;
+    height: 31rem;
+    background: ${props => props.theme['background']}; 
+    border-top-left-radius: 6px;
+    border-top-right-radius: 44px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 44px;
+
+
 
 `
 
 export const CheckoutFormContainer = styled.div`
     width: 40rem;
-    height: 23rem;
+    height: 25rem;
     background: ${props => props.theme['background']};  
     padding: 2rem;
     border-radius: 10px;
-    margin-top: 1rem;
-    
+
 
     img {
             position: absolute;
@@ -67,17 +91,19 @@ export const CheckoutFormContainer = styled.div`
 `
 export const IconPaymentContainer = styled.div`
     position: absolute;
-
-
 `
 export const CheckoutPaymentContainer = styled.div`
     width: 40rem;
-    max-height: 12rem;
+    height: 12rem;
     padding: 2rem;
-    margin-top: 1rem;
+    margin-top: 5rem;
+    
+    
     border-radius: 10px;
     background: ${props => props.theme['background']};
     font-family: 'Roboto', sans-serif;
+    margin-left: -2rem;
+    
 
     > span {
         font-size: 1rem;
