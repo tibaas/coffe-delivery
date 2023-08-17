@@ -20,7 +20,7 @@ export const TitleSection = styled.h3`
 `
 
 export const SelectedItemsContainer = styled.div`
-    padding: 1.5rem;
+    
     width: 28rem;
     height: 31rem;
     background: ${props => props.theme['background']}; 
@@ -30,6 +30,8 @@ export const SelectedItemsContainer = styled.div`
     border-bottom-left-radius: 44px;
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
+    
     
     
 
@@ -118,7 +120,7 @@ export const SelectedItem = styled.div`
     width:100%;
     min-height:7rem;
     gap: 5px;
-    
+    margin-bottom: 1rem;
     span:last-child{
       color: ${props => props.theme['base-text']};
       display: flex;
@@ -151,8 +153,8 @@ export const SpanLine = styled.div`
   width: 25rem;
   background: ${props => props.theme['base-button']};
   height: 1px;
-  position: absolute;
-  margin-top: 7.5rem;
+  
+  margin-top: 1rem;
 
 `
 

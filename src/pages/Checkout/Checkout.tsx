@@ -99,7 +99,32 @@ export function Checkout() {
                 <SpanLine>
 
                 </SpanLine>
+                <SelectedItem>
+                    <img src={Coffe} alt="" />
+                    <SelectedItemTitleContainer>
+                            <p>Expresso Tradicional</p>          
+                    </SelectedItemTitleContainer> 
+                    <SelectedItemButtonContainer>
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button> 
+                                 
+                    </SelectedItemButtonContainer>                    
+                        <RemoveButtonContainer>
+                            <button > <Trash color="#8047f8" />  REMOVER </button>
+                        </RemoveButtonContainer>                 
+                        <span> R$ <strong> 9,90 </strong></span>
+
+                </SelectedItem>
+                <SpanLine>
+
+                </SpanLine>
+                
+                
+                
             </SelectedItemsContainer>
+            
+
         </CheckoutContainer>
 
     </>
