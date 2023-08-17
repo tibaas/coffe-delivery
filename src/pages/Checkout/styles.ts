@@ -31,19 +31,21 @@ export const SelectedItemsContainer = styled.div`
     display: flex;
     align-items: flex-start;
     
+    
 
 `
 export const SelectedItemButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 7px;
   border: 0;
   border-radius: 15px;
   margin-top: 2rem;
-  margin-right: 10rem;
-  position: absolute;
   
+  
+  
+  font-family: 'Roboto', sans-serif;
   background: ${props => props.theme['base-button']};
   
 
@@ -65,7 +67,7 @@ export const SelectedItemButtonContainer = styled.div`
 export const RemoveButtonContainer = styled.div`
 
     margin-top: 2rem;
-    margin-right: 3rem;
+    margin-right: 1rem;
     
     button {
       width: 5.6rem;
@@ -80,41 +82,48 @@ export const RemoveButtonContainer = styled.div`
       border-radius: 8px;
       gap: 5px;
       
+      
+      
     }
 
 
 `
 
 export const SelectedItemTitleContainer = styled.div`
-  margin-bottom: 4rem;
-  margin-left: 1rem;
+    background: red;
+    width: 0;
+    height: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    margin-bottom: 4rem;
+    
   
-  max-height: 1.2rem;
-  
-  background: red;
-  
-
       
   p {
       font-family: 'Roboto', sans-serif;
       font-size: 1rem;
-      display: inline;
+      margin: 0;
+      white-space: nowrap;
+      /* overflow: hidden; 
+      text-overflow: ellipsis;  */
     }
 
 `
 
 export const SelectedItem = styled.div`
-
+    
     width:100%;
-    height:7rem;
-
+    min-height:7rem;
+    gap: 5px;
     
     span:last-child{
       color: ${props => props.theme['base-text']};
       display: flex;
       font-family: 'Baloo 2', sans-serif;
-      margin-bottom: 2rem;
-      margin-right: 2rem;
+      margin-bottom: 2.8rem;
       font-size: 1.1rem;
       
 
@@ -122,19 +131,28 @@ export const SelectedItem = styled.div`
       
     }
     
-
+    
     display: flex;
     align-items: center;
     justify-content:center;
     
 
     img {
-      width: 4rem;
-      height: 4rem;
-      display: inline-block;
+      width: 5rem;
+      height: 5rem;
+      margin-right: 2rem;
       
     }
 
+
+`
+
+export const SpanLine = styled.div`
+  width: 25rem;
+  background: ${props => props.theme['base-button']};
+  height: 1px;
+  position: absolute;
+  margin-top: 7.5rem;
 
 `
 

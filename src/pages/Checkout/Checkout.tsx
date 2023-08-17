@@ -16,7 +16,8 @@ import { BairroInput,
     SelectedItem,
     SelectedItemTitleContainer,
     SelectedItemButtonContainer,
-    RemoveButtonContainer
+    RemoveButtonContainer,
+    SpanLine
 } from "./styles";
 import Icon from '../../assets/location-checkout-icon.svg'
 import { CreditCard, Bank, Money, CurrencyDollar, Trash } from "phosphor-react";
@@ -24,7 +25,8 @@ import Coffe from '../../assets/expresso-tradicional.svg'
 
 export function Checkout() {
     return (
-        <CheckoutContainer>
+    <>
+            <CheckoutContainer>
             <TitleSection>
                 <h3>Complete seu pedido</h3>
             </TitleSection>
@@ -80,25 +82,27 @@ export function Checkout() {
                 <SelectedItem>
                     <img src={Coffe} alt="" />
                     <SelectedItemTitleContainer>
-                        <p>Expresso Tradicional</p>            
+                            <p>Expresso Tradicional</p>          
                     </SelectedItemTitleContainer> 
                     <SelectedItemButtonContainer>
                         <button>-</button>
                         <span>1</span>
-                        <button>+</button>           
-                    </SelectedItemButtonContainer>
-                    <RemoveButtonContainer>
-                        <button > <Trash color="#8047f8" />  REMOVER </button>
-                    </RemoveButtonContainer>
-                    
-                    
-
+                        <button>+</button> 
+                                 
+                    </SelectedItemButtonContainer>                    
+                        <RemoveButtonContainer>
+                            <button > <Trash color="#8047f8" />  REMOVER </button>
+                        </RemoveButtonContainer>                 
                         <span> R$ <strong> 9,90 </strong></span>
 
                 </SelectedItem>
+                <SpanLine>
 
+                </SpanLine>
             </SelectedItemsContainer>
         </CheckoutContainer>
+
+    </>
     )
 }
 
