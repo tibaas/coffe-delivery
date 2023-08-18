@@ -35,17 +35,36 @@ export const SpanDivContainer = styled.div`
     justify-content: space-around;
     flex-direction: column;
 
+    span {
+        margin-left: 1rem;
+        color: ${props => props.theme['base-text']}
+    }
 
+    img {
+        width: 2.5rem;
+        height: 2.5rem;     
+    }
+`
+
+export const ImageContainer = styled.div`    
+    margin-top: 6.5rem;
+`
+export const TextContainer = styled.div`
+          
+    display: flex;
+    align-items: center;
     img {
         width: 2.5rem;
         height: 2.5rem;
     }
 
-`
+    span {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+    }
 
-export const ImageContainer = styled.div`
-    
-    margin-top: 6.5rem;
-
-
+    strong {
+        font-weight: bold;
+    }
+   
 `
