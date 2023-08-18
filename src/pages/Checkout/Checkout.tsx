@@ -135,13 +135,8 @@ export function Checkout() {
                         <p>Total</p>
                         <p>R$ 23,30</p>
                     </TextContainer>
-
-                        <button> CONFIRMAR PEDIDO </button>
-                                       
-                </LabelContainer>
-                
-              
-                
+                        <button> CONFIRMAR PEDIDO </button>                                      
+                </LabelContainer>                            
             </SelectedItemsContainer>
 
             
