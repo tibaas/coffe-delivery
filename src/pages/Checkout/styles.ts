@@ -22,7 +22,8 @@ export const TitleSection = styled.h3`
 export const SelectedItemsContainer = styled.div`
     
     width: 28rem;
-    height: 31rem;
+    max-height: 100%;
+    min-height: 37rem;
     background: ${props => props.theme['background']}; 
     border-top-left-radius: 6px;
     border-top-right-radius: 44px;
@@ -65,6 +66,29 @@ export const SelectedItemButtonContainer = styled.div`
 
 
 `
+export const SelectedItemTitleContainer = styled.div`
+    background: red;
+    width: 0;
+    height: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    margin-bottom: 4rem;
+    
+  
+      
+  p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      margin: 0;
+      white-space: nowrap;
+      /* overflow: hidden; 
+      text-overflow: ellipsis;  */
+    }
+
+`
 
 export const RemoveButtonContainer = styled.div`
 
@@ -90,30 +114,45 @@ export const RemoveButtonContainer = styled.div`
 
 
 `
+export const TextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
 
-export const SelectedItemTitleContainer = styled.div`
-    background: red;
-    width: 0;
-    height: 0;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
-    margin-bottom: 4rem;
-    
-  
-      
   p {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+
+`
+export const LabelContainer = styled.div`
+
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    
+    
+    button {
+      width: 23rem;
+      height: 3rem;
+      border: 0;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-top: 2rem;
+      background: ${props => props.theme['yellow']};
+      color: white;
       font-family: 'Roboto', sans-serif;
+      font-weight: bold;
       font-size: 1rem;
-      margin: 0;
-      white-space: nowrap;
-      /* overflow: hidden; 
-      text-overflow: ellipsis;  */
+
+      &:hover {
+        background: ${props => props.theme['yellow-dark']}
+      }
     }
 
 `
+
 
 export const SelectedItem = styled.div`
     
@@ -150,10 +189,10 @@ export const SelectedItem = styled.div`
 `
 
 export const SpanLine = styled.div`
-  width: 25rem;
+  width: 23rem;
   background: ${props => props.theme['base-button']};
   height: 1px;
-  
+  margin-left: 2rem;
   margin-top: 1rem;
 
 `

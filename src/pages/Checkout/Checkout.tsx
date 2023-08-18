@@ -17,7 +17,9 @@ import { BairroInput,
     SelectedItemTitleContainer,
     SelectedItemButtonContainer,
     RemoveButtonContainer,
-    SpanLine
+    SpanLine,
+    LabelContainer,
+    TextContainer
 } from "./styles";
 import Icon from '../../assets/location-checkout-icon.svg'
 import { CreditCard, Bank, Money, CurrencyDollar, Trash } from "phosphor-react";
@@ -120,9 +122,30 @@ export function Checkout() {
 
                 </SpanLine>
                 
+                <LabelContainer>
+                    <TextContainer>
+                        <p>Total de itens</p>
+                        <p>R$ 19,80</p>
+                    </TextContainer>
+                        <TextContainer>
+                            <p>Entrega</p>
+                            <p>R$3,50</p>
+                        </TextContainer>
+                        <div>
+                            <TextContainer>
+                                <p>Total</p>
+                                <p>R$ 23,30</p>
+                            </TextContainer>
+
+                        <button> CONFIRMAR PEDIDO </button>
+                        </div>
                 
+                </LabelContainer>
+                
+              
                 
             </SelectedItemsContainer>
+
             
 
         </CheckoutContainer>
