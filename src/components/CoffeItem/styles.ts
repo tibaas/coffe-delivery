@@ -50,7 +50,7 @@ export const CoffeItemForm = styled.div`
      
     button {
         
-        width:2.5rem;
+        width:2rem;
         height: 2rem;
         border: 0;
         border-radius:5px;
@@ -78,20 +78,11 @@ export const ButtonItemFormDiv = styled.div `
         justify-content: center;
         border-radius:10px;
         
-        
-
          span {
             font-size: 1rem;
             font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            
+            font-weight: bold;       
         }
-        
-    
-
-  
-
-
 `
 
 export const ShoppingCartIconContainer = styled.div`
