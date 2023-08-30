@@ -19,7 +19,7 @@ import { BairroInput,
     RemoveButtonContainer,
     SpanLine,
     LabelContainer,
-    TextContainer
+    TextContainer,
 } from "./styles";
 import Icon from '../../assets/location-checkout-icon.svg'
 import { CreditCard, Bank, Money, CurrencyDollar, Trash } from "phosphor-react";
@@ -58,7 +58,7 @@ export function Checkout() {
                             <BairroInput type="text" placeholder="Bairro" />
                             <CidadeInput type="text" placeholder="Cidade" />
                             <UfInput type="text" placeholder="UF" />
-                    </InputRow>
+                        </InputRow>
                     </form>
                 </section>
 
@@ -81,26 +81,7 @@ export function Checkout() {
             </CheckoutFormContainer>
 
             <SelectedItemsContainer>
-                <SelectedItem>
-                    <img src={Coffe} alt="" />
-                    <SelectedItemTitleContainer>
-                            <p>Expresso Tradicional</p>          
-                    </SelectedItemTitleContainer> 
-                    <SelectedItemButtonContainer>
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button> 
-                                 
-                    </SelectedItemButtonContainer>                    
-                        <RemoveButtonContainer>
-                            <button > <Trash color="#8047f8" />  REMOVER </button>
-                        </RemoveButtonContainer>                 
-                        <span> R$ <strong> 9,90 </strong></span>
-
-                </SelectedItem>
-                <SpanLine>
-
-                </SpanLine>
+               
                 <SelectedItem>
                     <img src={Coffe} alt="" />
                     <SelectedItemTitleContainer>

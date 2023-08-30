@@ -32,10 +32,7 @@ export const SelectedItemsContainer = styled.div`
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    
-    
-    
-
+       
 `
 export const SelectedItemButtonContainer = styled.div`
   display: flex;
@@ -54,18 +51,24 @@ export const SelectedItemButtonContainer = styled.div`
 
   button {
         
-        width:2rem;
+        width: 1.7rem;
         height: 2rem;
         border:0;
         border-radius: 8px;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         background: ${props => props.theme['base-button']};
         color: ${props => props.theme['purple']};
-        cursor: pointer;   
+        cursor: pointer;  
+        
+        &:hover {
+          color: ${props => props.theme['base-text']}
+        }
+
+       
     }
 
-
 `
+
 export const SelectedItemTitleContainer = styled.div`
     background: red;
     width: 0;
@@ -96,6 +99,7 @@ export const RemoveButtonContainer = styled.div`
     margin-right: 1rem;
     
     button {
+      cursor: pointer;
       width: 5.6rem;
       height: 2rem;
       display: flex;
@@ -107,9 +111,10 @@ export const RemoveButtonContainer = styled.div`
       border: 0;
       border-radius: 8px;
       gap: 5px;
-      
-      
-      
+
+      &:hover {
+        background: ${props => props.theme['base-hover']};
+      } 
     }
 
 
@@ -165,11 +170,7 @@ export const SelectedItem = styled.div`
       display: flex;
       font-family: 'Baloo 2', sans-serif;
       margin-bottom: 2.8rem;
-      font-size: 1.1rem;
-      
-
-      
-      
+      font-size: 1.1rem; 
     }
     
     
@@ -240,6 +241,9 @@ export const CheckoutFormContainer = styled.div`
         border-radius: 5px;
         outline:none;
         text-indent: 10px;
+          &:focus{
+            border: 1px solid ${props => props.theme['yellow-dark']};
+        }
         
          &::placeholder{
            display: flex;
@@ -307,6 +311,11 @@ export const ButtonsContainer = styled.div`
         justify-content: center;
         gap: 10px;
 
+        &:focus {
+          background: ${props => props.theme['purple-light']};
+          border: 1px solid ${props => props.theme['purple']};
+        }
+
         &:hover {
             background: ${props => props.theme['base-hover']}
         }
@@ -314,7 +323,7 @@ export const ButtonsContainer = styled.div`
 
 `
 
-
+/* Style for form/inputs container */
 
 export const CustomInputContainer = styled.div`
   position: relative;
@@ -364,6 +373,8 @@ export const InputColumn = styled.div`
 export const InputRow = styled.div`
   display: flex;
   gap: 1rem;
+
+
 `
 export const CepInput = styled.input`
   flex: 0.325;

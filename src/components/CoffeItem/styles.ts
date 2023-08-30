@@ -45,44 +45,66 @@ export const CoffeItemForm = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 6px;
     margin-bottom: 2rem;
-    
+     
     button {
         
         width:2.5rem;
         height: 2rem;
-        border:0;
+        border: 0;
+        border-radius:5px;
         font-size: 1.8rem;
         background: ${props => props.theme['base-button']};
         color: ${props => props.theme['purple']};
         cursor: pointer;   
     }
 
-    div {
+     span {
+        font-family: 'Baloo 2', sans-serif;
+        font-size: 1.4rem;   
+        color: ${props => props.theme['base-text']};
+        
+    }   
+
+`
+
+export const ButtonItemFormDiv = styled.div `
+
+
         background: ${props => props.theme['base-button']};
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        border-radius:10px;
         
         
 
-        > span {
+         span {
             font-size: 1rem;
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
             
         }
         
-    }
+    
 
-    span {
-        font-family: 'Baloo 2', sans-serif;
-        font-size: 1.6rem;   
-        color: ${props => props.theme['base-text']};
-        
-    }
+  
+
+
+`
+
+export const ShoppingCartIconContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    background: ${props => props.theme['purple-dark']};
+
 
 `
 
@@ -92,7 +114,7 @@ export const CoffeTagSpan = styled.span`
     justify-content: center;
     width: 85px;
     min-height: 21px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: ${props => props.theme['yellow-light']};
     color:  ${props => props.theme['yellow-dark']};
     font-family: 'Roboto', sans-serif;
