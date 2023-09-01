@@ -6,11 +6,12 @@ export const CoffeListContainer = styled.div`
     height: 100%;
     padding: 6rem;
     gap: 3rem;
-
+    flex-wrap: wrap;
     background: ${props => props.theme['background']};
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
 
 
 

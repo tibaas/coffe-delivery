@@ -1,17 +1,29 @@
 import { CoffeItemContainer, CoffeItemForm, CoffeTagSpan, ShoppingCartIconContainer, ButtonItemFormDiv } from "./styles";
-import TraditionalCoffe from '../../assets/expresso-tradicional.svg'
 import { Plus, Minus, ShoppingCartSimple } from "phosphor-react";
 
+interface CoffeItemProps {
+    title: string
+    description: string
+    price: number
+    image: string
+    tag: string[]
+    
+}
 
-export function CoffeItem() {
+
+export function CoffeItem({title, description, price, image, tag}: CoffeItemProps) {
     return (
         <CoffeItemContainer>
-            <img src={TraditionalCoffe} alt="" />
-            <CoffeTagSpan>TRADICIONAL</CoffeTagSpan>
-            <h3>Expresso Tradicional</h3>
-            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <img src={image} alt={title} />
+            <div>
+                {tag.map((item, index) => 
+                    <CoffeTagSpan key={index}>{item}</CoffeTagSpan>
+                )}
+            </div>
+            <h3>{title}</h3>
+            <p>{description}</p>
             <CoffeItemForm>
-                <span>R$ <strong>9,90</strong></span>
+                <span>R$ <strong> {price.toFixed(2)} </strong></span>
 
                 <ButtonItemFormDiv>
                     <button> <strong><Minus size={18} /></strong></button><span>1</span><button><strong><Plus size={18} /></strong></button>

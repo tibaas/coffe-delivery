@@ -16,11 +16,19 @@ export const CoffeItemContainer = styled.div`
     border-bottom-left-radius: 36px;
 
     background: ${props => props.theme['base-card']};
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
     
 
     img {
-        margin-bottom: 2rem;
-        
+        margin-bottom: 1.5rem;
+        width: 7.5rem;
+        height: 7.5rem;
     }
 
     h3 {
@@ -103,9 +111,10 @@ export const CoffeTagSpan = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 85px;
+    
+    width: 75px;
     min-height: 21px;
-    border-radius: 5px;
+    border-radius: 10px;
     background: ${props => props.theme['yellow-light']};
     color:  ${props => props.theme['yellow-dark']};
     font-family: 'Roboto', sans-serif;
