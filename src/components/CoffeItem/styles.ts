@@ -8,7 +8,7 @@ export const CoffeItemContainer = styled.div`
     flex-direction: column;
     padding: 2rem;
 
-    width: 17rem;
+    width: 17.2rem;
     height: 20rem;
     border-top-left-radius: 6px;
     border-top-right-radius: 36px;
@@ -26,7 +26,7 @@ export const CoffeItemContainer = styled.div`
     
 
     img {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.2rem;
         width: 7.5rem;
         height: 7.5rem;
     }
@@ -35,6 +35,7 @@ export const CoffeItemContainer = styled.div`
         color: ${props => props.theme['base-title']};
         font-family: 'Baloo 2', sans-serif;
         font-size: 1.3rem;
+        
        
     }
 
