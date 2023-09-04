@@ -7,13 +7,15 @@ import { useCart } from '../../context/ContextGlobal'
 
 
 
+
 export function Header() {
 
     const {totalQuantity} = useCart()
+    const { cart } = useCart()
 
 
     function handleClick() {
-        console.log()
+        console.log(cart)
     }
     return (
         <HeaderContainer>

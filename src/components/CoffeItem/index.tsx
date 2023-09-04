@@ -25,8 +25,7 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
 
     const [cart, setCart] = useState<CartItem[]>([])
     const [quantity, setQuantity] = useState(1)
-    const [totalQuantity, setTotalQuantity] = useState(0)
-    const {addToCart} = useCart()
+    const {AddToGlobalCart}= useCart()
     
     const Increase = () => {
         setQuantity(state => state + 1)
@@ -36,22 +35,22 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
             setQuantity(state => state - 1)
         }
     }
-    const HandleRemoveItemFromCart =  (itemToRemove: CartItem): void => {
-        const existingItemIndex = cart.findIndex(
-            (item: CartItem) => item.title === itemToRemove.title
-        )
-        if(existingItemIndex !== -1) {
-            const updatedCart = [...cart]
+    // const HandleRemoveItemFromCart =  (itemToRemove: CartItem): void => {
+    //     const existingItemIndex = cart.findIndex(
+    //         (item: CartItem) => item.title === itemToRemove.title
+    //     )
+    //     if(existingItemIndex !== -1) {
+    //         const updatedCart = [...cart]
 
-            if (updatedCart[existingItemIndex].quantity === 1) {
-                updatedCart.splice(existingItemIndex, 1)
-            } else {
-                updatedCart[existingItemIndex].quantity -= 1
-            }
-            setCart(updatedCart)
-            setTotalQuantity((state) => state - 1)
-        }
-    }
+    //         if (updatedCart[existingItemIndex].quantity === 1) {
+    //             updatedCart.splice(existingItemIndex, 1)
+    //         } else {
+    //             updatedCart[existingItemIndex].quantity -= 1
+    //         }
+    //         setCart(updatedCart)
+    //         setTotalQuantity((state) => state - 1)
+    //     }
+    // }
     const HandleAddToCart = (itemToAdd: CartItem): void => {
         const existingItemIndex = cart.findIndex(
             (item: CartItem) => item.title === itemToAdd.title
@@ -66,7 +65,7 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
             setCart([...cart, itemToAdd])
         }
         
-        addToCart(itemToAdd)
+        AddToGlobalCart(itemToAdd)
     }
     
     
@@ -84,12 +83,12 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
                 <span>R$ <strong> {price.toFixed(2)} </strong></span>
 
                 <ButtonItemFormDiv>
-                    <button onClick={() => HandleRemoveItemFromCart({description, image, price, quantity, title})}> <strong><Minus size={18} /></strong></button><span>{quantity}</span>
+                    <button onClick={Decrement}> <strong><Minus size={18} /></strong></button><span>{quantity}</span>
                     <button onClick={Increase}><strong><Plus size={18} /></strong></button>
                 </ButtonItemFormDiv>
                 
                 <ShoppingCartIconContainer>
-                    <ShoppingCartSimple onClick={() => HandleAddToCart({description, image, price, quantity, title})} size={24} />
+                    <ShoppingCartSimple onClick={() => HandleAddToCart({title, price, quantity, description, image})} size={24} />
                 </ShoppingCartIconContainer>
                                
             </CoffeItemForm>

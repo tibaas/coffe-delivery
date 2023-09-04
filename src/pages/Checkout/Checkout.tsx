@@ -99,8 +99,11 @@ export function Checkout() {
                         <span> R$ <strong> 9,90 </strong></span>
 
                 </SelectedItem>
-                <SpanLine>
 
+
+
+                
+                <SpanLine>
                 </SpanLine>
                 
                 <LabelContainer>

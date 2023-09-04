@@ -1,19 +1,19 @@
 import React, { createContext, useContext, useState } from "react";
 import { CartItem } from "../components/CoffeItem";
 
-interface CartContextProps {
+export interface CartContextProps {
   cart: CartItem[];
-  addToCart: (itemToAdd: CartItem) => void;
-  totalQuantity: number;
+  totalQuantity: number ;
+  AddToGlobalCart: (itemToAdd: CartItem) => void 
 }
 
-const CartContext = createContext<CartContextProps | undefined>(undefined);
+const CartContext = createContext({} as CartContextProps);
 
 export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
 
-  const addToCart = (itemToAdd: CartItem) => {
+  const AddToGlobalCart = (itemToAdd: CartItem): void => {
     const existingItemIndex = cart.findIndex(
       (item: CartItem) => item.title === itemToAdd.title
     );
@@ -30,12 +30,13 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, totalQuantity }}>
+    <CartContext.Provider value={{ cart, AddToGlobalCart, totalQuantity }}>
       {children}
     </CartContext.Provider>
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => {
   const context = useContext(CartContext);
   return context;
