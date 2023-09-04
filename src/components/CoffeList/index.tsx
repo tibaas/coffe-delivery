@@ -17,6 +17,7 @@ import Macchiato from '../../assets/coffeImgs/Macchiato.svg'
 import ChocolateQuente from '../../assets/coffeImgs/ChocolateQuente.svg'
 
 
+
 interface CoffeProps {
     title: string
     description: string
@@ -148,6 +149,7 @@ const CoffeData: CoffeProps[] = [{
 ]
 
 export function CoffeList() {
+
     return (
         <>
             <TitleContainer>
@@ -164,7 +166,6 @@ export function CoffeList() {
                         tag={coffe.tag}   
                     />
                 )}
-                
             </CoffeListContainer>
         </>
     )

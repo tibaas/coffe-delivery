@@ -32,7 +32,7 @@ export function SucessCheckout() {
                         </span>
                     </TextContainer>                              
                 </SpanDivContainer>
-                        </div>
+            </div>
                     <ImageContainer>
                         <img src={motinha} alt="" />
                     </ImageContainer>
