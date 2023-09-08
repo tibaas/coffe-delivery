@@ -20,8 +20,16 @@ import { BairroInput,
 import Icon from '../../assets/location-checkout-icon.svg'
 import { CreditCard, Bank, Money, CurrencyDollar,} from "phosphor-react";
 import { SelectedItem } from "../../components/SelectedItem";
+import { NavLink } from "react-router-dom";
+
 
 export function Checkout() {
+    // const [selectedItems, setSelectedItems] = useState([]);
+
+    // const HandleAddToCart = (itemToAdd) => {
+    //     setSelectedItems([...selectedItems, itemToAdd])
+    // }
+
     return (
     <>
             <CheckoutContainer>
@@ -77,8 +85,16 @@ export function Checkout() {
             </CheckoutFormContainer>
 
             <SelectedItemsContainer>
-               
-               <SelectedItem />
+                            <SelectedItem />
+            {/* {selectedItems.map((item, index) => (
+                <SelectedItem
+                    key={index}
+                    title={item.title}
+                    price={item.price}
+                    quantity={item.quantity}
+                    image={item.image}
+                />
+                ))} */}
 
                 <SpanLine>
                 </SpanLine>
@@ -96,7 +112,9 @@ export function Checkout() {
                         <p>Total</p>
                         <p>R$ 23,30</p>
                     </TextContainer>
+                    <NavLink to='/sucess'>
                         <button> CONFIRMAR PEDIDO </button>                                      
+                    </NavLink>
                 </LabelContainer>                            
             </SelectedItemsContainer>
 

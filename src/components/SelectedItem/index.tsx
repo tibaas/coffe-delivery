@@ -1,9 +1,11 @@
 import { RemoveButtonContainer, SelectedItemButtonContainer, SelectedItemTitleContainer,SelectedItemsDivContainer} from "./styles"
 import { Trash } from "phosphor-react"
 import CoffeImg from '../../assets/expresso-tradicional.svg'
+import { useCart } from '../../context/ContextGlobal'
+
 
 export function SelectedItem() {
-
+    const { cart } = useCart()
     return (
     
         <SelectedItemsDivContainer>

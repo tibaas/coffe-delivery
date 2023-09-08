@@ -163,7 +163,7 @@ export function CoffeList() {
                         description={coffe.description}
                         price={coffe.price}
                         image={coffe.image}
-                        tag={coffe.tag}   
+                        tag={coffe.tag} 
                     />
                 )}
             </CoffeListContainer>
