@@ -31,6 +31,15 @@ export const TextContainer = styled.div`
 
 `
 
+export const TotalP = styled.p`
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: ${props => props.theme['base-subtitle']};
+
+
+
+`
+
 export const SelectedItemsContainer = styled.div`
     
     width: 28rem;

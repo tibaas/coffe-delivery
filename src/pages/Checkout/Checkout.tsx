@@ -15,6 +15,7 @@ import { BairroInput,
     LabelContainer,
     TextContainer,
     SelectedItemsContainer,
+    TotalP,
 } from "./styles";
 import Icon from '../../assets/location-checkout-icon.svg'
 import { CreditCard, Bank, Money, CurrencyDollar,} from "phosphor-react";
@@ -104,8 +105,8 @@ export function Checkout() {
                         <p>R${deliveryCost.toFixed(2)}</p>
                     </TextContainer>                       
                     <TextContainer>
-                        <p>Total</p>
-                        <p>R$ {totalCost.toFixed(2)}</p>
+                        <TotalP>Total</TotalP>
+                        <TotalP>R$ {totalCost.toFixed(2)}</TotalP>
                     </TextContainer>
                     <NavLink to='/sucess'>
                         <button> CONFIRMAR PEDIDO </button>                                      

@@ -80,7 +80,7 @@ export const SelectedItemTitleContainer = styled.div`
   p {
       font-family: 'Roboto', sans-serif;
       font-size: 1rem;
-      margin: 0;
+      margin-left: 2rem;
       white-space: nowrap;
       /* overflow: hidden; 
       text-overflow: ellipsis;  */
