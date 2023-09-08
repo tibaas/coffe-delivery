@@ -73,14 +73,7 @@ export const LabelContainer = styled.div`
 
 `
 
-export const SpanLine = styled.div`
-  width: 23rem;
-  background: ${props => props.theme['base-button']};
-  height: 1px;
-  margin-left: 2rem;
-  margin-top: 1rem;
 
-`
 
 export const CheckoutFormContainer = styled.div`
     width: 40rem;

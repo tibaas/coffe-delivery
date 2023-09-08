@@ -12,7 +12,6 @@ import { BairroInput,
     RuaInput, 
     UfInput,
     TitleSection,
-    SpanLine,
     LabelContainer,
     TextContainer,
     SelectedItemsContainer,
@@ -21,15 +20,21 @@ import Icon from '../../assets/location-checkout-icon.svg'
 import { CreditCard, Bank, Money, CurrencyDollar,} from "phosphor-react";
 import { SelectedItem } from "../../components/SelectedItem";
 import { NavLink } from "react-router-dom";
+import { useCart } from "../../context/ContextGlobal";
 
 
 export function Checkout() {
-    // const [selectedItems, setSelectedItems] = useState([]);
+    const { cart } = useCart();
+    const deliveryCost = 3.50;
+    const totalItemsCost = cart.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
 
-    // const HandleAddToCart = (itemToAdd) => {
-    //     setSelectedItems([...selectedItems, itemToAdd])
+    const totalCost = totalItemsCost + deliveryCost;
+
+    // const handleConfirmaPedido = () => {
+    //     ResetCart()
     // }
-
     return (
     <>
             <CheckoutContainer>
@@ -85,32 +90,22 @@ export function Checkout() {
             </CheckoutFormContainer>
 
             <SelectedItemsContainer>
+                
                             <SelectedItem />
-            {/* {selectedItems.map((item, index) => (
-                <SelectedItem
-                    key={index}
-                    title={item.title}
-                    price={item.price}
-                    quantity={item.quantity}
-                    image={item.image}
-                />
-                ))} */}
-
-                <SpanLine>
-                </SpanLine>
+                
                 
                 <LabelContainer>
                     <TextContainer>
                         <p>Total de itens</p>
-                        <p>R$ 19,80</p>
+                        <p>R$ {totalItemsCost.toFixed(2)}</p>
                     </TextContainer>
                     <TextContainer>
                         <p>Entrega</p>
-                        <p>R$3,50</p>
+                        <p>R${deliveryCost.toFixed(2)}</p>
                     </TextContainer>                       
                     <TextContainer>
                         <p>Total</p>
-                        <p>R$ 23,30</p>
+                        <p>R$ {totalCost.toFixed(2)}</p>
                     </TextContainer>
                     <NavLink to='/sucess'>
                         <button> CONFIRMAR PEDIDO </button>                                      
