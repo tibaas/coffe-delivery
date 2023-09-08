@@ -35,6 +35,22 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
             setQuantity(state => state - 1)
         }
     }
+    // const HandleRemoveItemFromCart =  (itemToRemove: CartItem): void => {
+    //     const existingItemIndex = cart.findIndex(
+    //         (item: CartItem) => item.title === itemToRemove.title
+    //     )
+    //     if(existingItemIndex !== -1) {
+    //         const updatedCart = [...cart]
+
+    //         if (updatedCart[existingItemIndex].quantity === 1) {
+    //             updatedCart.splice(existingItemIndex, 1)
+    //         } else {
+    //             updatedCart[existingItemIndex].quantity -= 1
+    //         }
+    //         setCart(updatedCart)
+    //         setTotalQuantity((state) => state - 1)
+    //     }
+    // }
     const HandleAddToCart = (itemToAdd: CartItem): void => {
         const existingItemIndex = cart.findIndex(
             (item: CartItem) => item.title === itemToAdd.title
