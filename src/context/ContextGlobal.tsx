@@ -13,26 +13,26 @@ const CartContext = createContext({} as CartContextProps);
 export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
-
+  //this function is not working yet
   const ResetCart = () => {
     setCart([])
   }
   
   const AddToGlobalCart = (itemToAdd: CartItem): void => {
+
     const existingItemIndex = cart.findIndex(
       (item: CartItem) => item.title === itemToAdd.title
     );
-
+  
     if (existingItemIndex !== -1) {
       const updatedCart = [...cart];
-      updatedCart[existingItemIndex].quantity += itemToAdd.quantity;
+      updatedCart.splice(existingItemIndex, 1);
       setCart(updatedCart);
-      
+      setTotalQuantity((prevTotalQuantity) => prevTotalQuantity - itemToAdd.quantity)
     } else {
       setCart([...cart, itemToAdd]);
+      setTotalQuantity((prevTotalQuantity) => prevTotalQuantity + itemToAdd.quantity);
     }
-
-    setTotalQuantity((prevTotalQuantity) => prevTotalQuantity + itemToAdd.quantity);
   };
 
   return (

@@ -3,9 +3,10 @@ import { Trash } from "phosphor-react"
 import { useCart } from '../../context/ContextGlobal'
 
 
-
 export function SelectedItem() {
-    const { cart } = useCart()
+
+    const { cart, AddToGlobalCart } = useCart()
+
     return (
         <>
           {cart.map((item, index) => (
@@ -21,16 +22,13 @@ export function SelectedItem() {
                     <button>+</button>             
                 </SelectedItemButtonContainer>                    
                 <RemoveButtonContainer>
-                    <button> <Trash color="#8047f8" />  REMOVER </button>
+                    <button onClick={() => AddToGlobalCart(item)}> <Trash color="#8047f8" />  REMOVER </button>
                 </RemoveButtonContainer>                 
                 <span> R$ <strong>{(item.price * item.quantity).toFixed(2)}</strong></span>
                 </SelectedItemsDivContainer> 
                 <SpanLine />
             </div>
-          ))}
-         
-          
-         
+          ))}  
         </>
       );
 

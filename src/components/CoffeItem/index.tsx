@@ -40,8 +40,6 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
         const existingItemIndex = cart.findIndex(
             (item: CartItem) => item.title === itemToAdd.title
         )
-
-
         if (existingItemIndex !== -1) {
             const updatedCart = [...cart]
             updatedCart[existingItemIndex].quantity += itemToAdd.quantity
