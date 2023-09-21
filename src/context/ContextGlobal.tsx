@@ -6,7 +6,6 @@ export interface CartContextProps {
   totalQuantity: number 
   ResetCart: () => void
   AddToGlobalCart: (itemToAdd: CartItem) => void 
-  ReduceItemValue: (value: number) => void
 
 }
 
@@ -18,9 +17,6 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   //this function is not working yet
   const ResetCart = () => {
     setCart([])
-  }
-  const ReduceItemValue = (value: number) => {
-      value - 1
   }
 
 
@@ -42,7 +38,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, AddToGlobalCart, totalQuantity, ResetCart, ReduceItemValue}}>
+    <CartContext.Provider value={{ cart, AddToGlobalCart, totalQuantity, ResetCart}}>
       {children}
     </CartContext.Provider>
   );
