@@ -24,7 +24,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     //verifica se já existe o item no carrinho
     if (existingItemIndex !== -1) {
       const updatedCart = [...cart];
-      updatedCart.splice(existingItemIndex, 0);
+      updatedCart.splice(existingItemIndex, 1);
       setCart(updatedCart);
     } else {
       setCart([...cart, itemToAdd]);
