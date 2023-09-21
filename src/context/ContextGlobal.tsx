@@ -4,7 +4,6 @@ import { CartItem } from "../components/CoffeItem";
 export interface CartContextProps {
   cart: CartItem[];
   totalQuantity: number 
-  ResetCart: () => void
   AddToGlobalCart: (itemToAdd: CartItem) => void 
 }
 
@@ -13,10 +12,7 @@ const CartContext = createContext({} as CartContextProps);
 export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
-  //this function is not working yet
-  const ResetCart = () => {
-    setCart([])
-  }
+
   const AddToGlobalCart = (itemToAdd: CartItem): void => {
     const existingItemIndex = cart.findIndex(
       (item: CartItem) => item.title === itemToAdd.title
@@ -33,7 +29,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, AddToGlobalCart, totalQuantity, ResetCart}}>
+    <CartContext.Provider value={{ cart, AddToGlobalCart, totalQuantity}}>
       {children}
     </CartContext.Provider>
   );
