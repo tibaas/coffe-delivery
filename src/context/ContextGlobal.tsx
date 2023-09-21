@@ -6,7 +6,6 @@ export interface CartContextProps {
   totalQuantity: number 
   ResetCart: () => void
   AddToGlobalCart: (itemToAdd: CartItem) => void 
-
 }
 
 const CartContext = createContext({} as CartContextProps);
