@@ -18,14 +18,13 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     setCart([])
   }
   const AddToGlobalCart = (itemToAdd: CartItem): void => {
-
-
     const existingItemIndex = cart.findIndex(
       (item: CartItem) => item.title === itemToAdd.title
     );
+    //verifica se já existe o item no carrinho
     if (existingItemIndex !== -1) {
       const updatedCart = [...cart];
-      updatedCart.splice(existingItemIndex, 1);
+      updatedCart.splice(existingItemIndex, 0);
       setCart(updatedCart);
     } else {
       setCart([...cart, itemToAdd]);

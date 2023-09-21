@@ -22,8 +22,6 @@ export interface CartItem {
 
 
 export function CoffeItem({title, description, price, image, tag }: CoffeItemProps) {
-
-    const [cart, setCart] = useState<CartItem[]>([])
     const [quantity, setQuantity] = useState(1)
     const {AddToGlobalCart}= useCart()
     
@@ -36,21 +34,8 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
         }
     }
  
-    const HandleAddToCart = (itemToAdd: CartItem): void => {
-
-        const existingItemIndex = cart.findIndex(
-            (item: CartItem) => item.title === itemToAdd.title)
-        if (existingItemIndex !== -1) {
-            const updatedCart = [...cart]
-            updatedCart[existingItemIndex].quantity += itemToAdd.quantity
-            setCart(updatedCart)
-            
-        }
-        else {
-            setCart([...cart, itemToAdd])  
-        }       
-        AddToGlobalCart(itemToAdd)   
-        
+    const HandleAddToCart = (itemToAdd: CartItem): void => { 
+        AddToGlobalCart(itemToAdd) 
     }
 
     return (
