@@ -18,9 +18,6 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   const ResetCart = () => {
     setCart([])
   }
-
-
-
   const AddToGlobalCart = (itemToAdd: CartItem): void => {
 
 
