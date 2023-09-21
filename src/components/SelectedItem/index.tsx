@@ -5,7 +5,10 @@ import { useCart } from '../../context/ContextGlobal'
 
 export function SelectedItem() {
 
-    const { cart, AddToGlobalCart } = useCart()
+    const { cart, AddToGlobalCart} = useCart()
+
+    
+
 
     return (
         <>

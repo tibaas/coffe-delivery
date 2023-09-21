@@ -6,6 +6,8 @@ export interface CartContextProps {
   totalQuantity: number 
   ResetCart: () => void
   AddToGlobalCart: (itemToAdd: CartItem) => void 
+  ReduceItemValue: (value: number) => void
+
 }
 
 const CartContext = createContext({} as CartContextProps);
@@ -17,18 +19,22 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   const ResetCart = () => {
     setCart([])
   }
-  
+  const ReduceItemValue = (value: number) => {
+      value - 1
+  }
+
+
+
   const AddToGlobalCart = (itemToAdd: CartItem): void => {
+
 
     const existingItemIndex = cart.findIndex(
       (item: CartItem) => item.title === itemToAdd.title
     );
-  
     if (existingItemIndex !== -1) {
       const updatedCart = [...cart];
       updatedCart.splice(existingItemIndex, 1);
       setCart(updatedCart);
-      setTotalQuantity((prevTotalQuantity) => prevTotalQuantity - itemToAdd.quantity)
     } else {
       setCart([...cart, itemToAdd]);
       setTotalQuantity((prevTotalQuantity) => prevTotalQuantity + itemToAdd.quantity);
@@ -36,7 +42,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, AddToGlobalCart, totalQuantity, ResetCart}}>
+    <CartContext.Provider value={{ cart, AddToGlobalCart, totalQuantity, ResetCart, ReduceItemValue}}>
       {children}
     </CartContext.Provider>
   );

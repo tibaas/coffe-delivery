@@ -92,7 +92,7 @@ export function Checkout() {
 
             <SelectedItemsContainer>
                 
-                            <SelectedItem />
+                            <SelectedItem/>
                 
                 
                 <LabelContainer>

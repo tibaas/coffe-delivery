@@ -13,8 +13,8 @@ export function SucessCheckout() {
                     <TextContainer>
                         <img src={LocationIcon} alt="" />
                         <span>
-                            Entrega em <strong>Rua Manoel Rodrigues Campos, 114<br /></strong>
-                            São Sebastião - Ouricuri, PE
+                            Entrega em <strong>Rua Pedro Rodrigues Campos, 280<br /></strong>
+                            Centro - Ouricuri, PE
                         </span>
                     </TextContainer>
                     <TextContainer>
