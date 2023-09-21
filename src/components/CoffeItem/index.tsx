@@ -25,16 +25,16 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
     const [quantity, setQuantity] = useState(1)
     const {AddToGlobalCart}= useCart()
     
-    const Increase = () => {
+    const increase = () => {
         setQuantity(state => state + 1)
     } 
-    const Decrement = () => {
+    const decrement = () => {
         if (quantity > 1) {
             setQuantity(state => state - 1)
         }
     }
  
-    const HandleAddToCart = (itemToAdd: CartItem): void => { 
+    const handleAddToCart = (itemToAdd: CartItem): void => { 
         AddToGlobalCart(itemToAdd) 
     }
 
@@ -52,12 +52,12 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
                 <span>R$ <strong> {price.toFixed(2)} </strong></span>
 
                 <ButtonItemFormDiv>
-                    <button onClick={Decrement}> <strong><Minus size={18} /></strong></button><span>{quantity}</span>
-                    <button onClick={Increase}><strong><Plus size={18} /></strong></button>
+                    <button onClick={decrement}> <strong><Minus size={18} /></strong></button><span>{quantity}</span>
+                    <button onClick={increase}><strong><Plus size={18} /></strong></button>
                 </ButtonItemFormDiv>
                 
                 <ShoppingCartIconContainer>
-                    <ShoppingCartSimple onClick={() => HandleAddToCart({title, price, quantity, description, image})} size={24} />
+                    <ShoppingCartSimple onClick={() => handleAddToCart({title, price, quantity, description, image})} size={24} />
                 </ShoppingCartIconContainer>
                                
             </CoffeItemForm>
