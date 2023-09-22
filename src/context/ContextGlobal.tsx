@@ -17,7 +17,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     const itemIndex = cart.findIndex(
       (item: CartItem) => item.title === itemToAdd.title
     );
-    //verifica se já existe o item no carrinho
+    //verify if item already exists
     if (itemIndex !== -1) {
       const updatedCart = [...cart];
       updatedCart[itemIndex].quantity += itemToAdd.quantity
