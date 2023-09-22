@@ -14,18 +14,19 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   const AddToGlobalCart = (itemToAdd: CartItem): void => {
-    const ItemIndex = cart.findIndex(
+    const itemIndex = cart.findIndex(
       (item: CartItem) => item.title === itemToAdd.title
     );
     //verifica se já existe o item no carrinho
-    if (ItemIndex !== -1) {
+    if (itemIndex !== -1) {
       const updatedCart = [...cart];
-      updatedCart.splice(ItemIndex, 1);
+      updatedCart[itemIndex].quantity += itemToAdd.quantity
       setCart(updatedCart);
       setTotalQuantity((prevTotalQuantity) => prevTotalQuantity + itemToAdd.quantity);
+      
     } else {
-      setTotalQuantity((prevTotalQuantity) => prevTotalQuantity + itemToAdd.quantity);
       setCart([...cart, itemToAdd]);
+      setTotalQuantity((prevTotalQuantity) => prevTotalQuantity + itemToAdd.quantity);
     }
   };
 
