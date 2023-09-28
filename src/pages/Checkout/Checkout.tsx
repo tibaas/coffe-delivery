@@ -24,8 +24,9 @@ import { NavLink } from "react-router-dom";
 import { useCart } from "../../context/ContextGlobal";
 
 
+
 export function Checkout() {
-    const { cart } = useCart();
+    const { cart, ResetCart } = useCart();
     const deliveryCost = 3.50;
     const totalItemsCost = cart.reduce((total, item) => {
       return total + item.price * item.quantity;
@@ -33,9 +34,6 @@ export function Checkout() {
 
     const totalCost = totalItemsCost + deliveryCost;
 
-    // const handleConfirmaPedido = () => {
-    //     ResetCart()
-    // }
     return (
     <>
             <CheckoutContainer>
@@ -109,7 +107,7 @@ export function Checkout() {
                         <TotalP>R$ {totalCost.toFixed(2)}</TotalP>
                     </TextContainer>
                     <NavLink to='/sucess'>
-                        <button> CONFIRMAR PEDIDO </button>                                      
+                        <button onClick={() => ResetCart()}> CONFIRMAR PEDIDO </button>                                      
                     </NavLink>
                 </LabelContainer>                            
             </SelectedItemsContainer>

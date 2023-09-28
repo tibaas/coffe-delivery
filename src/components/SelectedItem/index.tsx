@@ -6,7 +6,7 @@ import { CartItem } from "../CoffeItem"
 
 export function SelectedItem() {
 
-    const {cart, AddToGlobalCart} = useCart()
+    const {cart, AddToGlobalCart, DeleteCart} = useCart()
 
     const incrementQuantity = (item: CartItem) => {
       AddToGlobalCart({...item, quantity: + 1})
@@ -16,6 +16,7 @@ export function SelectedItem() {
         AddToGlobalCart({...item, quantity: -1})
       }
     }
+
     return (
         <>
           {cart.map((item, index) => (
@@ -31,7 +32,7 @@ export function SelectedItem() {
                     <button onClick={() => incrementQuantity(item)} >+</button>             
                 </SelectedItemButtonContainer>                    
                 <RemoveButtonContainer>
-                    <button> <Trash color="#8047f8" />  REMOVER </button>
+                    <button onClick={() => DeleteCart(item)}> <Trash color="#8047f8" />  REMOVER </button>
                 </RemoveButtonContainer>                 
                 <span> R$ <strong>{(item.price * item.quantity).toFixed(2)}</strong></span>
                 </SelectedItemsDivContainer> 
