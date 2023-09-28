@@ -18,12 +18,9 @@ export const ImageContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 18px;
-
         img {
             cursor: pointer;
         }
-     
-
 `
 
 export const CartNumber = styled.div`
@@ -41,6 +38,7 @@ export const CartNumber = styled.div`
         font-size: 1rem;
         color: ${props => props.theme['yellow-light']};
         background: ${props => props.theme['purple']};
+
 
 
 `

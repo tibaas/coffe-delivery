@@ -74,10 +74,19 @@ export const LabelContainer = styled.div`
       font-family: 'Roboto', sans-serif;
       font-weight: bold;
       font-size: 1rem;
+      &:disabled {
+        cursor:not-allowed;
+        background: silver;
+        &:hover {
+          background: #e23;
+        }
+      }
 
       &:hover {
         background: ${props => props.theme['yellow-dark']}
       }
+
+    
     }
 
 `

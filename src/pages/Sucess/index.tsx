@@ -1,9 +1,12 @@
 import { Container, SpanDivContainer,ImageContainer, TextContainer } from "./style";
-import motinha from '../../assets/moto-image.svg'
+import deliverySucessImage from '../../assets/moto-image.svg'
 import LocationIcon from '../../assets/Icon-location-sucess.svg'
 import TimeIcon from '../../assets/Icon-time.svg'
 import MoneyIcon from '../../assets/Icon-money-sucess.svg'
+import { useLocation } from "react-router-dom";
 export function SucessCheckout() {
+    const location = useLocation()
+    const formData = location.state
     return (
         <Container>
             <div>
@@ -13,8 +16,8 @@ export function SucessCheckout() {
                     <TextContainer>
                         <img src={LocationIcon} alt="" />
                         <span>
-                            Entrega em <strong>Rua Pedro Rodrigues Campos, 280<br /></strong>
-                            Centro - Ouricuri, PE
+                            Entrega em <strong>{formData.street}, {formData.houseNumber}<br /></strong>
+                            {formData.bairro} - {formData.city}, PE
                         </span>
                     </TextContainer>
                     <TextContainer>
@@ -34,7 +37,7 @@ export function SucessCheckout() {
                 </SpanDivContainer>
             </div>
                     <ImageContainer>
-                        <img src={motinha} alt="" />
+                        <img src={deliverySucessImage} alt="" />
                     </ImageContainer>
         </Container>
     )

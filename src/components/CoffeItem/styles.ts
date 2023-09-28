@@ -103,9 +103,12 @@ export const ShoppingCartIconContainer = styled.div`
     border: 0;
     border-radius: 5px;
     color: white;
-    background: ${props => props.theme['purple-dark']};
-    cursor: pointer;
+    background: ${props => props.theme['purple']};
+    cursor: pointer;    
 
+    &:active{
+        background: ${props => props.theme['purple-dark']};
+    }
 
 `
 

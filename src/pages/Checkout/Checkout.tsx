@@ -20,8 +20,9 @@ import { BairroInput,
 import Icon from '../../assets/location-checkout-icon.svg'
 import { CreditCard, Bank, Money, CurrencyDollar,} from "phosphor-react";
 import { SelectedItem } from "../../components/SelectedItem";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 import { useCart } from "../../context/ContextGlobal";
+import { useForm } from 'react-hook-form'
 
 
 
@@ -31,8 +32,18 @@ export function Checkout() {
     const totalItemsCost = cart.reduce((total, item) => {
       return total + item.price * item.quantity;
     }, 0);
-
     const totalCost = totalItemsCost + deliveryCost;
+
+    const {register, handleSubmit, reset, watch} = useForm()
+    const navigate = useNavigate()
+
+    const HandleCreateNewForm = (data : object): void => {
+        navigate('/sucess', {state: data, })
+        ResetCart()
+        reset()
+    }
+
+    const street = watch('city')
 
     return (
     <>
@@ -51,22 +62,39 @@ export function Checkout() {
                     <p>Informe o endereço onde você deseja receber o pedido</p>  
                 </header>
                 <section>
-                    <form action="">
+                    <form onSubmit={handleSubmit(HandleCreateNewForm)} action="">
                         <InputRow>
-                            <CepInput type="text" placeholder="CEP" />
+                            <CepInput type="number" placeholder="CEP" />
                         </InputRow>
                         <InputRow>
-                            <RuaInput type="text" placeholder="Rua" />
+                            <RuaInput 
+                                type="text" 
+                                placeholder="Endereço"
+                                {...register('street')}                        
+                            />
                         </InputRow>
                         <InputRow>
-                            <NumeroInput type="text" placeholder="Número" />
+                            <NumeroInput
+                                type="number" 
+                                placeholder="Número" 
+                                {...register('houseNumber')} 
+                            />
                             <ComplementoInput type="text" placeholder="Complemento                                                                             Opcional" />
                         </InputRow>
                         <InputRow>
-                            <BairroInput type="text" placeholder="Bairro" />
-                            <CidadeInput type="text" placeholder="Cidade" />
+                            <BairroInput
+                                type="text" 
+                                placeholder="Bairro" 
+                                {...register('bairro')} 
+                            />
+                            <CidadeInput
+                                type="text" 
+                                placeholder="Cidade" 
+                                {...register('city')}
+                            />
                             <UfInput type="text" placeholder="UF" />
                         </InputRow>
+                    
                     </form>
                 </section>
 
@@ -107,7 +135,7 @@ export function Checkout() {
                         <TotalP>R$ {totalCost.toFixed(2)}</TotalP>
                     </TextContainer>
                     <NavLink to='/sucess'>
-                        <button onClick={() => ResetCart()}> CONFIRMAR PEDIDO </button>                                      
+                        <button type='submit' disabled={!street}  onClick={handleSubmit(HandleCreateNewForm)} > CONFIRMAR PEDIDO </button>                                      
                     </NavLink>
                 </LabelContainer>                            
             </SelectedItemsContainer>

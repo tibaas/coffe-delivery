@@ -35,7 +35,8 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
     }
  
     const handleAddToCart = (itemToAdd: CartItem): void => { 
-        AddToGlobalCart(itemToAdd) 
+        AddToGlobalCart(itemToAdd)
+        
     }
 
     return (
@@ -56,8 +57,8 @@ export function CoffeItem({title, description, price, image, tag }: CoffeItemPro
                     <button onClick={increase}><strong><Plus size={18} /></strong></button>
                 </ButtonItemFormDiv>
                 
-                <ShoppingCartIconContainer>
-                    <ShoppingCartSimple onClick={() => handleAddToCart({title, price, quantity, description, image})} size={24} />
+                <ShoppingCartIconContainer  >
+                    <ShoppingCartSimple  onClick={() => handleAddToCart({title, price, quantity, description, image})} size={24} />
                 </ShoppingCartIconContainer>
                                
             </CoffeItemForm>
