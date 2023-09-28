@@ -118,14 +118,10 @@ export function Checkout() {
                             <span style={{color: "red", marginTop:'5px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}> 
                                 <Warning style={{marginBottom: '5px', marginRight: '10px'}} size={25} /> UF Apenas 2 caracteres! 
                             </span>}
-                        </InputRow>
-                      
-                    </form>
-                    
+                        </InputRow>                     
+                    </form>                  
                 </section>
-
                 <section>
-
                 <CheckoutPaymentContainer>
                     <IconPaymentContainer>
                         <CurrencyDollar  size={25} color="#8047f8" /> 
@@ -137,16 +133,11 @@ export function Checkout() {
                         <button  onClick={() => handlePaymentClick('CARTÃO DE CRÉDITO')} > <CreditCard size={15} color="#8047f8"/> CARTÃO DE CRÉDITO</button>
                         <button  onClick={() => handlePaymentClick('CARTÃO DE DÉBITO')} > <Bank size={15} color="#8047f8" /> CARTÃO DE DÉBITO</button>
                     </ButtonsContainer>
-                </CheckoutPaymentContainer>
-                    
+                </CheckoutPaymentContainer>  
                 </section>
             </CheckoutFormContainer>
-
-            <SelectedItemsContainer>
-                
-                            <SelectedItem/>
-                
-                
+            <SelectedItemsContainer>               
+                            <SelectedItem/>      
                 <LabelContainer>
                     <TextContainer>
                         <p>Total de itens</p>
@@ -165,9 +156,6 @@ export function Checkout() {
                     </NavLink>
                 </LabelContainer>                            
             </SelectedItemsContainer>
-
-            
-
         </CheckoutContainer>
 
     </>
