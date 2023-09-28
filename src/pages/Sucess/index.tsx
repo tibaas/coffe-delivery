@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 export function SucessCheckout() {
     const location = useLocation()
     const formData = location.state
+
     return (
         <Container>
             <div>
@@ -17,7 +18,7 @@ export function SucessCheckout() {
                         <img src={LocationIcon} alt="" />
                         <span>
                             Entrega em <strong>{formData.street}, {formData.houseNumber}<br /></strong>
-                            {formData.bairro} - {formData.city}, PE
+                            {formData.bairro} - {formData.city}, {formData.uf}
                         </span>
                     </TextContainer>
                     <TextContainer>
@@ -31,7 +32,7 @@ export function SucessCheckout() {
                         <img src={MoneyIcon} alt="" />
                         <span>
                             Pagamento na entrega<br />
-                            <strong>Cartão de Crédito</strong>
+                            <strong>{formData.selectedPayment}</strong>
                         </span>
                     </TextContainer>                              
                 </SpanDivContainer>

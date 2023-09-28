@@ -18,33 +18,44 @@ import { BairroInput,
     TotalP,
 } from "./styles";
 import Icon from '../../assets/location-checkout-icon.svg'
-import { CreditCard, Bank, Money, CurrencyDollar,} from "phosphor-react";
+import { CreditCard, Bank, Money, CurrencyDollar, Warning} from "phosphor-react";
 import { SelectedItem } from "../../components/SelectedItem";
 import { NavLink, useNavigate} from "react-router-dom";
 import { useCart } from "../../context/ContextGlobal";
 import { useForm } from 'react-hook-form'
-
+import { useState } from 'react'
 
 
 export function Checkout() {
     const { cart, ResetCart } = useCart();
+    const [selectedPayment, setSelectedPayment] = useState("");
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+    const {register, handleSubmit, reset, watch, formState: { errors }} = useForm()
     const deliveryCost = 3.50;
     const totalItemsCost = cart.reduce((total, item) => {
       return total + item.price * item.quantity;
     }, 0);
     const totalCost = totalItemsCost + deliveryCost;
-
-    const {register, handleSubmit, reset, watch} = useForm()
     const navigate = useNavigate()
 
-    const HandleCreateNewForm = (data : object): void => {
-        navigate('/sucess', {state: data, })
+    const handlePaymentClick = (paymentMethod: string) => {
+        setSelectedPayment(paymentMethod);
+        setIsButtonEnabled(true)
+      };
+
+      //checking if form fields are fulfilled
+      const ufWatching = watch('uf')
+      const streeWatching = watch('street')
+      const numberWatching = watch('houseNumber')
+      const cityWatching = watch('city')
+      const cepWatching = watch('cep')
+
+    const HandleCreateNewForm = (formData : object): void => {
+        navigate('/sucess', {state: {...formData, selectedPayment}})
         ResetCart()
         reset()
     }
-
-    const street = watch('city')
-
+ 
     return (
     <>
             <CheckoutContainer>
@@ -64,17 +75,23 @@ export function Checkout() {
                 <section>
                     <form onSubmit={handleSubmit(HandleCreateNewForm)} action="">
                         <InputRow>
-                            <CepInput type="number" placeholder="CEP" />
+                            <CepInput {...register("cep", { minLength: {value: 8, message: 'error'}, required: true})}  
+                            type="number" 
+                            placeholder="CEP" />
+                            {errors.cep && 
+                            <span style={{color: "red", marginTop:'5px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}> 
+                                <Warning style={{marginBottom: '5px', marginRight: '10px'}} size={25} /> Informe um CEP válido! 
+                            </span>}
                         </InputRow>
                         <InputRow>
-                            <RuaInput 
+                            <RuaInput
                                 type="text" 
                                 placeholder="Endereço"
                                 {...register('street')}                        
                             />
                         </InputRow>
                         <InputRow>
-                            <NumeroInput
+                            <NumeroInput                               
                                 type="number" 
                                 placeholder="Número" 
                                 {...register('houseNumber')} 
@@ -82,20 +99,29 @@ export function Checkout() {
                             <ComplementoInput type="text" placeholder="Complemento                                                                             Opcional" />
                         </InputRow>
                         <InputRow>
-                            <BairroInput
+                            <BairroInput                              
                                 type="text" 
                                 placeholder="Bairro" 
                                 {...register('bairro')} 
                             />
-                            <CidadeInput
+                            <CidadeInput                          
                                 type="text" 
                                 placeholder="Cidade" 
                                 {...register('city')}
                             />
-                            <UfInput type="text" placeholder="UF" />
+                            <UfInput                           
+                            type="text" 
+                            placeholder="UF"
+                            {...register('uf', { maxLength: {value: 2, message: 'error'}, required: true, minLength: {value: 2, message:'error'}})}
+                             />
+                            {errors.uf && 
+                            <span style={{color: "red", marginTop:'5px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}> 
+                                <Warning style={{marginBottom: '5px', marginRight: '10px'}} size={25} /> UF Apenas 2 caracteres! 
+                            </span>}
                         </InputRow>
-                    
+                      
                     </form>
+                    
                 </section>
 
                 <section>
@@ -107,9 +133,9 @@ export function Checkout() {
                     <span> Pagamento</span>
                     <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
                     <ButtonsContainer>
-                        <button> <CreditCard size={15} color="#8047f8"/> CARTÃO DE CRÉDITO</button>
-                        <button> <Bank size={15} color="#8047f8" /> CARTÃO DE DÉBITO</button>
-                        <button> <Money size={15} color="#8047f8" />  DINHEIRO</button>
+                        <button  onClick={() => handlePaymentClick('DINHEIRO')} > <Money size={15} color="#8047f8" />  DINHEIRO</button>
+                        <button  onClick={() => handlePaymentClick('CARTÃO DE CRÉDITO')} > <CreditCard size={15} color="#8047f8"/> CARTÃO DE CRÉDITO</button>
+                        <button  onClick={() => handlePaymentClick('CARTÃO DE DÉBITO')} > <Bank size={15} color="#8047f8" /> CARTÃO DE DÉBITO</button>
                     </ButtonsContainer>
                 </CheckoutPaymentContainer>
                     
@@ -135,7 +161,7 @@ export function Checkout() {
                         <TotalP>R$ {totalCost.toFixed(2)}</TotalP>
                     </TextContainer>
                     <NavLink to='/sucess'>
-                        <button type='submit' disabled={!street}  onClick={handleSubmit(HandleCreateNewForm)} > CONFIRMAR PEDIDO </button>                                      
+                        <button type='submit' disabled={!isButtonEnabled || !ufWatching || !numberWatching || !streeWatching || !cityWatching || !cepWatching}  onClick={handleSubmit(HandleCreateNewForm)} > CONFIRMAR PEDIDO </button>                                      
                     </NavLink>
                 </LabelContainer>                            
             </SelectedItemsContainer>
